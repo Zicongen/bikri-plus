@@ -373,7 +373,7 @@ a.ccard{cursor:pointer}
 </div></div>
 <script>
 /* ===== Forms post to a Cloudflare Worker, which forwards to n8n. Replace WEBHOOK with your deployed Worker URL. Never put the n8n secret in this file. ===== */
-var BP={WEBHOOK:'https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev',
+var BP={WEBHOOK:'https://fancy-dew-8021.dev-noteporo.workers.dev',
 send:function(type,data){if(!BP.WEBHOOK)return Promise.resolve(false);
 var body=JSON.stringify(Object.assign({type:type,source:'bikri-plus-website',pageUrl:location.href.split('#')[0],submittedAt:new Date().toISOString()},data));
 return fetch(BP.WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:body}).then(function(r){if(r.ok){BP.err='';return true}BP.err=r.status;return r.json().then(function(j){BP.err=(j&&j.error)||r.status;return false},function(){return false})}).catch(function(){BP.err='network';return false})}};
