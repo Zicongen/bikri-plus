@@ -1,5 +1,0 @@
-{
-  "name": "bikri-plus",
-  "private": true,
-  "engines": { "node": ">=18" }
-}
